@@ -1,0 +1,18 @@
+# Dependencias de la aplicación. Se fijan versiones exactas al cerrar cada fase.
+
+# Datos y análisis
+pandas>=2.2
+numpy>=1.26
+scikit-learn>=1.5
+statsmodels>=0.14
+
+# Persistencia
+sqlalchemy>=2.0
+
+# Lectura de actividades
+fitparse>=1.2
+gpxpy>=1.6
+
+# Dashboard
+dash>=2.17
+plotly>=5.22

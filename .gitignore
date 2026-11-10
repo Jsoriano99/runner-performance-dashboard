@@ -1,0 +1,54 @@
+# --- Datos personales: nunca al repo -------------------------------------
+data/**
+!data/README.md
+!data/raw/
+!data/processed/
+!data/**/.gitkeep
+
+# --- Python ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.sqlite
+*.db
+
+# --- Jupyter --------------------------------------------------------------
+.ipynb_checkpoints/
+
+# --- LaTeX (auxiliares; el PDF final se genera, no se versiona) -----------
+memoria-latex/**/*.aux
+memoria-latex/**/*.bbl
+memoria-latex/**/*.bcf
+memoria-latex/**/*.blg
+memoria-latex/**/*.fdb_latexmk
+memoria-latex/**/*.fls
+memoria-latex/**/*.lof
+memoria-latex/**/*.log
+memoria-latex/**/*.lot
+memoria-latex/**/*.out
+memoria-latex/**/*.run.xml
+memoria-latex/**/*.synctex.gz
+memoria-latex/**/*.toc
+memoria-latex/**/*.acn
+memoria-latex/**/*.acr
+memoria-latex/**/*.alg
+memoria-latex/**/*.glg
+memoria-latex/**/*.glo
+memoria-latex/**/*.gls
+memoria-latex/**/*.ist
+memoria-latex/**/*.lol
+memoria-latex/build/
+memoria-latex/*.pdf
+
+# --- Entorno / IDE --------------------------------------------------------
+.env
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

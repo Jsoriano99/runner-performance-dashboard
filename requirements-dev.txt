@@ -1,0 +1,6 @@
+-r requirements.txt
+
+# Desarrollo y calidad
+pytest>=8
+ruff>=0.6
+jupyter
