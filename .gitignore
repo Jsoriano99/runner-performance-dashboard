@@ -52,3 +52,10 @@ memoria-latex/*.pdf
 .idea/
 .DS_Store
 Thumbs.db
+
+# --- LaTeX: minted y datos privados ---------------------------------------
+memoria-latex/_minted*/
+memoria-latex/**/*.loc
+memoria-latex/**/*.xdy
+memoria-latex/_datos_privados.tex
+memoria-latex/**/*.glsdefs
