@@ -1,0 +1,82 @@
+\chapter{Metodología, planificación y recursos}
+\label{ch:metodologia}
+
+% Fuente: apartados «Partes del TFG», «Fases de desarrollo y cronograma» y «Recursos previstos»
+% de la propuesta aprobada.
+
+\section{Metodología de trabajo}
+\label{sec:metodologia}
+
+El desarrollo sigue un enfoque incremental: cada fase produce un resultado funcional que se revisa con el tutor antes de iniciar la siguiente. Siguiendo sus indicaciones, el alcance y las funcionalidades se ajustan en función del tiempo disponible y de los avances conseguidos, para que el trabajo resulte viable y permita profundizar adecuadamente en los resultados.
+
+El trabajo se organiza en cinco partes, que se corresponden con los capítulos \ref{ch:analisis_datos} a \ref{ch:evaluacion}:
+
+\begin{enumerate}
+    \item \textbf{Análisis del contexto y recopilación de datos:} estudio del entorno deportivo, identificación de fuentes relevantes (\gls{api} de Strava o Garmin Connect, sensores o \textit{datasets} simulados) y definición de las métricas de rendimiento más representativas.
+    \item \textbf{Diseño del modelo de datos:} estructuración de la información mediante un esquema relacional o modelo de entidades y relaciones, garantizando la coherencia, trazabilidad y escalabilidad del sistema.
+    \item \textbf{Desarrollo del \textit{dashboard} inteligente:} implementación del panel interactivo con gráficos dinámicos, filtros personalizados y visualización simultánea de datos individuales y grupales.
+    \item \textbf{Módulo analítico y predictivo:} funciones estadísticas y modelos de predicción basados en regresión y series temporales para estimar la evolución del rendimiento y generar alertas de mejora o desviación.
+    \item \textbf{Evaluación y validación del sistema:} pruebas funcionales del \textit{dashboard}, análisis de la precisión de los modelos predictivos y validación del diseño desde el punto de vista técnico y de usabilidad.
+\end{enumerate}
+
+Las decisiones técnicas relevantes se documentan como registros de decisiones de arquitectura (\gls{adr}) en el repositorio del proyecto, y cada sesión de trabajo se anota en el diario de desarrollo (Anexo \ref{anx:diario}).
+
+\section{Planificación}
+\label{sec:planificacion}
+
+La Figura \ref{fig:cronograma} muestra el cronograma previsto en la propuesta, con una duración de doce semanas.
+
+\begin{figure}[H]
+\centering
+\begin{ganttchart}[
+    hgrid, vgrid,
+    x unit=0.7cm, y unit chart=0.75cm,
+    title height=1,
+    bar/.append style={fill=epscMedio!70},
+    bar label font=\small,
+    title label font=\small
+  ]{1}{12}
+  \gantttitle{Semana}{12} \\
+  \gantttitlelist{1,...,12}{1} \\
+  \ganttbar{F1. Requisitos, datos y modelo}{1}{3} \\
+  \ganttbar{F2. \textit{Dashboard} e integración}{4}{6} \\
+  \ganttbar{F3. Módulo analítico y predictivo}{7}{8} \\
+  \ganttbar{F4. Validación y documentación}{9}{10} \\
+  \ganttbar{F5. Memoria final y defensa}{11}{12}
+\end{ganttchart}
+\caption{Cronograma previsto del proyecto.}
+\label{fig:cronograma}
+\end{figure}
+
+% TODO: al cierre de cada fase, comparar lo previsto con lo real (desviaciones y causas).
+
+\section{Recursos}
+\label{sec:recursos}
+
+\begin{table}[H]
+\centering
+\caption{Recursos empleados en el proyecto.}
+\label{tab:recursos}
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+\toprule
+\textbf{Tipo} & \textbf{Recursos} \\
+\midrule
+Lenguaje y librerías & Python: pandas, Plotly, Dash, scikit-learn, statsmodels, SQLAlchemy, fitparse, gpxpy \\
+Persistencia & SQLite \\
+Fuentes de datos & Exportaciones de Strava y Garmin Connect (formatos \gls{fit} y \gls{gpx}) o \textit{datasets} simulados \\
+Control de versiones & Git y GitHub \\
+Entorno de desarrollo & Visual Studio Code, Jupyter Notebook \\
+Documentación & \LaTeX{} (plantilla de TFG de la EPSC) \\
+Infraestructura & Ordenador personal con entorno de desarrollo local \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% REVISAR: la propuesta preveía también JavaScript (React, Chart.js) y Power BI / Streamlit como
+% alternativas. Se eligió Dash para todo el sistema (ver ADR 0001 y sección \ref{sec:herramientas_dashboard}).
+
+\subsection{Uso de herramientas de inteligencia artificial}
+\label{sec:uso_ia}
+
+Durante el desarrollo se han utilizado asistentes de \gls{ia} (Claude Code y opencode) como apoyo en la programación, la configuración del entorno y la revisión de la documentación. Las convenciones que siguen estas herramientas están documentadas en el repositorio del proyecto. Todas las decisiones de diseño, el código y el contenido de esta memoria han sido revisados y asumidos por el autor.
+% REVISAR: confirmar con el tutor el nivel de detalle requerido sobre el uso de IA.

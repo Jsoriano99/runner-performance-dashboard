@@ -1,7 +1,42 @@
 \chapter{Objetivos}
 \label{ch:objetivos}
 
-Debe de ser igual a los mencionados en el anteproyecto.
+% Los objetivos deben coincidir con los de la propuesta aprobada (anteproyecto).
+% No modificar su contenido sin acordarlo con el tutor.
 
-Describir el objetivo principal y los objetivos especificos llevados a cabo para conseguir el objetivo principal.
+\section{Objetivo general}
+\label{sec:objetivo_general}
 
+El objetivo general de este trabajo es desarrollar un \textit{dashboard} inteligente que integre datos de rendimiento de corredores, detecte patrones de evolución y estime la progresión del rendimiento, como herramienta de apoyo a la toma de decisiones basada en datos.
+
+\section{Objetivos específicos}
+\label{sec:objetivos_especificos}
+
+Para alcanzar el objetivo general se plantean los siguientes objetivos específicos, recogidos en la propuesta aprobada:
+
+\begin{enumerate}[label=\textbf{O\arabic*.}, leftmargin=*]
+    \item \label{obj:dashboard} Diseñar e implementar un \textit{dashboard} interactivo que integre datos de rendimiento obtenidos de plataformas y dispositivos deportivos (como Strava o Garmin), permitiendo la visualización dinámica de métricas individuales y grupales.
+    \item \label{obj:analisis} Desarrollar un modelo de análisis de datos deportivos que permita detectar patrones de evolución en el ritmo, la frecuencia cardíaca, la potencia y la distancia recorrida, utilizando técnicas estadísticas y de ingeniería de datos.
+    \item \label{obj:prediccion} Implementar un módulo predictivo basado en regresión lineal y modelos de series temporales para estimar la progresión del rendimiento del corredor a corto y medio plazo.
+    \item \label{obj:interfaz} Diseñar una interfaz visual optimizada, intuitiva y adaptable, que facilite la interpretación de los indicadores de rendimiento tanto para deportistas individuales como para entrenadores o equipos.
+    \item \label{obj:datos} Integrar un sistema de gestión de datos estructurados que permita la comparación de resultados entre distintos corredores, fomentando la toma de decisiones basada en evidencias y el seguimiento personalizado del progreso.
+\end{enumerate}
+
+La Tabla \ref{tab:objetivos_capitulos} relaciona cada objetivo con el capítulo de la memoria en el que se aborda.
+
+\begin{table}[H]
+\centering
+\caption{Relación entre objetivos específicos y capítulos de la memoria.}
+\label{tab:objetivos_capitulos}
+\begin{tabular}{@{}cll@{}}
+\toprule
+\textbf{Objetivo} & \textbf{Ámbito} & \textbf{Capítulo} \\
+\midrule
+O1 & \textit{Dashboard} interactivo & \ref{ch:dashboard} \\
+O2 & Análisis de patrones & \ref{ch:predictivo} \\
+O3 & Módulo predictivo & \ref{ch:predictivo} \\
+O4 & Interfaz y usabilidad & \ref{ch:dashboard} y \ref{ch:evaluacion} \\
+O5 & Gestión de datos estructurados & \ref{ch:modelo_datos} \\
+\bottomrule
+\end{tabular}
+\end{table}

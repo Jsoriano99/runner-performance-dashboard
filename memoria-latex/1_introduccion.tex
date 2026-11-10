@@ -1,9 +1,39 @@
 \chapter{Introducción}
 \label{ch:introduccion}
 
-% TODO: redactar la introducción (contexto, motivación y estructura de la memoria).
-% Los ejemplos de LaTeX de la plantilla están en EJEMPLOS_LATEX.tex.
+% Fuente: apartado «Introducción» de la propuesta aprobada (noviembre de 2026).
+% REVISAR: ampliar con datos y citas cuando esté redactado el estado del arte.
 
+\section{Contexto y motivación}
+\label{sec:contexto}
 
-En estas primeras líneas de texto se puede ver como se cita una referencia bibliográfica contenida en el archivo ``referencias.bib''. En \cite{ref_articulo} se hace referencia a un artículo, en \cite{ref_libro} se hace referencia a un libro y en \cite{ref_web} se hace referencia a una web. 
+En la actualidad, el uso de datos en el ámbito deportivo ha adquirido una relevancia creciente para mejorar el rendimiento, prevenir lesiones y optimizar los entrenamientos. Los relojes deportivos y las plataformas de registro de actividad generan, en cada sesión, series de medidas como el ritmo, la \gls{fc}, la distancia, la potencia o la cadencia.
+% TODO: cita que respalde la afirmación anterior (estado del arte).
 
+Sin embargo, disponer de datos no implica saber aprovecharlos. La toma de decisiones basada en datos requiere organizarlos, analizarlos e interpretarlos de forma sistemática \cite{davenport2010analytics, provost2013data}. En el caso de un corredor o de su entrenador, esto supone responder a preguntas concretas: si el rendimiento está mejorando, si la carga de entrenamiento es adecuada o qué marca cabe esperar en una próxima competición.
+
+\section{Propuesta}
+\label{sec:propuesta}
+
+El presente \gls{tfg} propone el desarrollo de un \textit{dashboard} inteligente orientado al análisis del rendimiento de corredores, que integra métricas derivadas de fuentes de datos deportivas. El sistema pretende ofrecer una herramienta de apoyo a la toma de decisiones basada en datos, capaz de identificar patrones de evolución y proponer mejoras en los planes de entrenamiento.
+
+Se trata de un \gls{tfg} de tipo aplicado, cuyo resultado es un sistema software funcional acompañado de la presente memoria.
+
+\section{Estructura de la memoria}
+\label{sec:estructura}
+
+La memoria se organiza en los siguientes capítulos:
+
+\begin{itemize}
+    \item \textbf{Capítulo \ref{ch:objetivos}. Objetivos:} objetivo general y objetivos específicos del trabajo.
+    \item \textbf{Capítulo \ref{ch:antecedentes}. Antecedentes:} dispositivos y plataformas deportivas, métricas de rendimiento y herramientas para el desarrollo de \textit{dashboards}.
+    \item \textbf{Capítulo \ref{ch:metodologia}. Metodología, planificación y recursos:} fases del proyecto, cronograma y recursos empleados.
+    \item \textbf{Capítulo \ref{ch:analisis_datos}. Análisis del contexto y recopilación de datos:} fuentes de datos, formatos y métricas seleccionadas.
+    \item \textbf{Capítulo \ref{ch:modelo_datos}. Diseño del modelo de datos:} estructura de la información y esquema relacional.
+    \item \textbf{Capítulo \ref{ch:dashboard}. Desarrollo del \textit{dashboard}:} arquitectura e implementación del panel interactivo.
+    \item \textbf{Capítulo \ref{ch:predictivo}. Módulo analítico y predictivo:} métricas de rendimiento y modelos de predicción.
+    \item \textbf{Capítulo \ref{ch:evaluacion}. Evaluación y validación:} pruebas funcionales, precisión de los modelos y usabilidad.
+    \item \textbf{Capítulo \ref{ch:conclusiones}. Conclusiones y trabajo futuro.}
+\end{itemize}
+
+Los anexos recogen el diario de desarrollo, el código del sistema y el manual de usuario.
