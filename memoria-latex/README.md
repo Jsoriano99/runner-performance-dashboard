@@ -24,7 +24,8 @@ auxiliares no se versionan.
 | `__memoria.tex` | Documento principal: orden de las partes y capítulos |
 | `_datos_proyecto.tex` | Título (ES/EN), autor, director, grado |
 | `0_resumen_y_abstract.tex` | Resumen y palabras clave en español e inglés |
-| `1_introduccion.tex`, `2_objetivos.tex`, … | Capítulos |
+| `1_introduccion.tex` … `10_conclusiones.tex` | Capítulos (mapa completo en la skill `memoria-latex`) |
+| `anexo_diario.tex` | Anexo A: diario de desarrollo |
 | `referencias.bib` | Bibliografía |
 | `lista_acronimos.tex` | Acrónimos |
 | `EJEMPLOS_LATEX.tex` | Chuleta de la plantilla (no se incluye en el PDF) |

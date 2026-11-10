@@ -1,56 +1,10 @@
-\chapter{Código del programa}
+\chapter{Código del sistema}
+\label{anx:codigo}
 
+El código fuente completo del sistema está disponible en el repositorio público del proyecto:
 
-\section{Programa Principal}
+\begin{center}
+\url{https://github.com/Jsoriano99/runner-performance-dashboard}
+\end{center}
 
-\lstset{style=codestyle, language=C}
-\begin{lstlisting}[frame=single]
-// Esto es un comentario.
-const int PIN_LED = 7;
-
-int pin_azul = 0;           
-int pin_verde = 1;
-int pin_rojo = 2;
-
-void setup() {
-    pinMode(PIN_LED , OUTPUT);
-}
-
-void loop() {
-    digitalWrite(PIN_LED, HIGH);
-    delay(500);
-    digitalWrite(PIN_LED, LOW);
-    delay(500);
-}
-
-\end{lstlisting}
-
-
-\section{Programa Secundario}
-
-\lstset{style=codestyle, language=C}
-\begin{lstlisting}[frame=single]
-// Esto es un comentario.
-const int PIN_LED = 7;
-
-int pin_azul = 0;           
-int pin_verde = 1;
-int pin_rojo = 2;
-
-
-
-void setup() {
-    pinMode(PIN_LED , OUTPUT);
-}
-
-
-void loop() {
-    digitalWrite(PIN_LED, HIGH);
-    delay(500);
-    digitalWrite(PIN_LED, LOW);
-    delay(500);
-}
-
-\end{lstlisting}
-	
-	
+% TODO: estructura del repositorio y fragmentos de código relevantes (cortos) cuando existan.
