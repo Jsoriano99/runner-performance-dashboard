@@ -36,7 +36,7 @@ python -m venv .venv && source .venv/bin/activate
 pip install -r requirements-dev.txt
 ruff check . && ruff format --check .
 pytest
-cd memoria-latex && latexmk -pdf <principal>.tex
+cd memoria-latex && latexmk          # genera __memoria.pdf (config en latexmkrc)
 ```
 
 ## Reglas

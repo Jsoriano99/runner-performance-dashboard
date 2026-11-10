@@ -61,8 +61,17 @@ Cada capítulo en su propio `.tex`, incluido desde el fichero principal con `\in
 
 ```bash
 cd memoria-latex
-latexmk -pdf <principal>.tex
+latexmk        # usa latexmkrc: pdflatex -shell-escape (minted) + makeglossaries
+latexmk -c     # borra auxiliares
 ```
+
+- Fichero principal: `__memoria.tex`. Datos de portada y Anexo V: `_datos_proyecto.tex`.
+- Capítulos nuevos: fichero `N_nombre.tex` con `\chapter{}` + `\label{ch:...}`, incluido con `\input` en
+  `__memoria.tex` en el bloque «CAPÍTULOS».
+- Acrónimos: `\newacronym` en `lista_acronimos.tex`, usar con `\gls{}` en el texto.
+- `EJEMPLOS_LATEX.tex` es la chuleta de la plantilla (figuras, subfiguras, tablas, código, TikZ):
+  consultarla, no incluirla en el PDF.
+- El DNI nunca en git: va en `_datos_privados.tex` (ignorado).
 
 Antes de dar por terminado un cambio: compila sin errores, sin referencias `??` y sin citas
 indefinidas (revisar el `.log`). No subir el PDF ni los auxiliares.
