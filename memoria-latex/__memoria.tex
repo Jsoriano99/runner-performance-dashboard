@@ -54,7 +54,7 @@
 \usepackage{ulem} %subrayado y tachado
 \usepackage{pifont} % símbolos como tick y X
 \usepackage{comment} % comentar bloques grandes
-%\usepackage{longtable}
+\usepackage{longtable} % diario de desarrollo (Anexo A)
 \usepackage{seqsplit} % dividir texto largo automáticamente
 
 
@@ -199,6 +199,7 @@ $\ $
 \pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
 \pagestyle{indice}
 \thispagestyle{indice}
+% REVISAR: dedicatoria personal
 \begin{flushright}
 \textit{Dedicado a \\
 mi familia}
@@ -228,11 +229,11 @@ mi familia}
 \cleardoublepage
 \listoftables
 
-% Descomentar las siguientes líneas si tienes pensado añadir diagramas de flujo.
-\cleardoublepage
-\phantomsection
-\addcontentsline{toc}{chapter}{Índice de diagramas de flujo}
-\listofdiagrams
+% Índice de diagramas de flujo: descomentar cuando se use el entorno «diagrama».
+%\cleardoublepage
+%\phantomsection
+%\addcontentsline{toc}{chapter}{Índice de diagramas de flujo}
+%\listofdiagrams
 
 \cleardoublepage
 \phantomsection
@@ -263,19 +264,21 @@ mi familia}
 %	CAPÍTULOS      %
 %------------------%
 
+% Estructura según la propuesta aprobada (ver 4_metodologia.tex, partes 1--5)
 \input{1_introduccion}
 \input{2_objetivos}
-
-% --> poner otros capítulos. Por ejemplo:
-    %\input{3_antecedentes}    
-    %\input{4_materiales}
-    %\input{5_diseno}
-    %\input{6_pruebas}
+\input{3_antecedentes}
+\input{4_metodologia}
+\input{5_analisis_datos}       % Parte 1
+\input{6_diseno_modelo_datos}  % Parte 2
+\input{7_dashboard}            % Parte 3
+\input{8_modulo_predictivo}    % Parte 4
+\input{9_evaluacion}           % Parte 5
 
 % Ejemplos de la plantilla: descomentar solo para consultarlos (no van en la memoria)
 %\input{EJEMPLOS_LATEX}
 
-\input{7_conclusiones}
+\input{10_conclusiones}
 
 %--------------------%
 % DOCUMENTOS TÉNICOS %
@@ -298,14 +301,11 @@ mi familia}
 %      ANEXOS      %
 %------------------%
 
-% Planos: no aplica a un TFG de software
-%\input{planos}
-
 \appendix
+\renewcommand{\thetable}{\thechapter.\arabic{table}} % deshace la numeración P.n del presupuesto
 
-% Hojas de características: no aplica a un TFG de software
-%\input{anexo_hojas_de_caracteristicas}
-\input{anexo_codigo}
-\input{anexo_manual_usuario}
+\input{anexo_diario}           % Anexo A
+\input{anexo_codigo}           % Anexo B
+\input{anexo_manual_usuario}   % Anexo C
 
 \end{document}
