@@ -31,7 +31,8 @@ statsmodels · Dash + Plotly · pytest · ruff · LaTeX (latexmk).
 
 Ingesta (ver `docs/adr/0004-ingesta-por-adaptadores.md`): un adaptador por fuente que devuelve el
 esquema canónico de la skill `datos-actividades`. Solo el adaptador conoce el formato de origen.
-Fuente actual: exportación JSON de adidas Running, leída con pandas.
+Fuente actual: exportación de Apple Health, **solo los entrenos registrados por el Apple Watch**
+(`export.xml` con `iterparse` + rutas GPX con gpxpy). Las sesiones de otras apps se descartan.
 
 ## Comandos
 

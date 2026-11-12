@@ -20,7 +20,8 @@ lee ficheros de una fuente concreta.
 
 | Fuente | Formato | Notas |
 | --- | --- | --- |
-| **Exportación de adidas Running (fuente actual)** | zip con `Sport-sessions/*.json`, series de GPS y, si se registró, FC | Esquema no documentado: explorarlo en un notebook antes de escribir el adaptador. API cerrada desde el 30/06/2025 |
+| **Exportación de Apple Health (fuente actual)** | `export.zip` → `export.xml` (~1 GB) + `workout-routes/*.gpx` | Solo `<Workout>` de carrera con origen Apple Watch (ADR 0004). Leer con `iterparse`, nunca entero. FC por muestra agregada: usar la FC media de `<WorkoutStatistics>`. Contiene registros clínicos y ECG: nunca fuera de `data/raw/` |
+| Exportación de adidas Running | zip con `Sport-sessions/*.json` | Descartada como fuente (ADR 0004); API cerrada desde el 30/06/2025 |
 | Exportación masiva Strava | `activities.csv` + `activities/*.fit.gz`, `*.gpx.gz`, `*.tcx.gz` | Formato según cómo se subió la actividad |
 | Exportación Garmin Connect | `.fit` (dentro de zips) | Fuente más completa: FC, cadencia, potencia, dinámica de carrera |
 | Descarga suelta | `.fit` / `.gpx` | Para pruebas rápidas |
