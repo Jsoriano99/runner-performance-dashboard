@@ -29,6 +29,10 @@ trabajo de fases futuras ni se añaden funcionalidades no pedidas. Ante la duda,
 Python 3.12 · pip + venv · pandas · fitparse / gpxpy · SQLite + SQLAlchemy · scikit-learn ·
 statsmodels · Dash + Plotly · pytest · ruff · LaTeX (latexmk).
 
+Ingesta (ver `docs/adr/0004-ingesta-por-adaptadores.md`): un adaptador por fuente que devuelve el
+esquema canónico de la skill `datos-actividades`. Solo el adaptador conoce el formato de origen.
+Fuente actual: exportación JSON de adidas Running, leída con pandas.
+
 ## Comandos
 
 ```bash

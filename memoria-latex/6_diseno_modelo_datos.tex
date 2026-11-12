@@ -19,4 +19,18 @@
 
 \section{Proceso de ingesta y transformación}
 \label{sec:ingesta}
-% TODO: de los ficheros exportados a la base de datos: lectura, limpieza, normalización.
+
+La ingesta se ha diseñado para que el resto del sistema no dependa del formato en que se exportan los datos. Para ello se aplica el patrón adaptador: cada fuente de datos dispone de un adaptador propio que lee los ficheros de esa fuente y los transforma en un esquema canónico común, con unidades del Sistema Internacional, marcas de tiempo en UTC y nombres de columna fijos. El adaptador es el único componente que conoce el formato de origen, de modo que las conversiones de unidades y de campos se realizan una sola vez y en un único lugar. El modelo de datos, el cálculo de métricas y el \textit{dashboard} trabajan exclusivamente con el esquema canónico.
+
+El primer adaptador lee la exportación \gls{json} de adidas Running (sección~\ref{sec:fuentes}) directamente con la biblioteca pandas, sin herramientas de conversión externas. Se descartaron tres alternativas:
+
+\begin{itemize}
+    \item Convertir la exportación a \gls{fit} con un servicio externo, porque añade un paso manual y una dependencia ajena al proyecto, y la conversión puede alterar campos sin que quede constancia en el código.
+    \item Usar los ficheros \gls{gpx} de la exportación, porque la \gls{fc} y la cadencia, cuando existen, se almacenan en extensiones propias de cada fabricante, lo que hace la lectura más frágil.
+    \item Leer el formato de adidas directamente desde el modelo y las métricas, sin capa de adaptación, porque acoplaría todo el sistema a un formato no documentado que puede cambiar.
+\end{itemize}
+
+La principal consecuencia de esta decisión es la extensibilidad: incorporar otra fuente de datos, como un reloj que exporte ficheros \gls{fit}, solo requiere escribir un nuevo adaptador con sus pruebas, sin modificar el modelo de datos ni el resto del flujo. La decisión se documenta en el ADR 0004 del repositorio.
+
+% TODO: diagrama del flujo (exportación, adaptador, esquema canónico, SQLite) y reglas de limpieza
+% aplicadas (pausas, saltos de GPS, FC fuera de rango) cuando estén implementadas.

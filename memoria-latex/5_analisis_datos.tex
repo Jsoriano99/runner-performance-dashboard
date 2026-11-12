@@ -7,8 +7,14 @@
 
 \section{Fuentes de datos}
 \label{sec:fuentes}
-% TODO: exportación masiva de Strava y de Garmin Connect, API de Strava, datasets simulados.
-% Ventajas, limitaciones y elección.
+
+Los datos de entrenamiento reales de este trabajo proceden de la aplicación adidas Running (antes Runtastic), que es la única plataforma en la que el autor ha registrado sus sesiones. La sincronización automática con esta plataforma no es posible, ya que adidas retiró su \gls{api} pública el 30 de junio de 2025 \cite{runalyze2025changelog}. Por tanto, los datos se obtienen mediante la exportación manual de la cuenta, que entrega un fichero comprimido con un documento \gls{json} por sesión y las series de posición y, cuando se registró, de \gls{fc}.
+
+Se ha optado por leer esta exportación en su formato original, en lugar de convertirla antes a formatos más extendidos como \gls{fit} o \gls{gpx}. La justificación de esta decisión y su efecto en la arquitectura del sistema se describen en la sección~\ref{sec:ingesta}.
+
+% TODO: tras explorar la exportación real, detallar los campos disponibles en cada sesión y sus
+% limitaciones (en especial, si hay frecuencia cardiaca, necesaria para el TRIMP).
+% TODO: fuente de los datos de varios corredores para la vista de entrenador (pendiente de decidir).
 
 \section{Formatos de las actividades}
 \label{sec:formatos}
