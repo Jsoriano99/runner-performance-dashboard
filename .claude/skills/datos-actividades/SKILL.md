@@ -14,8 +14,14 @@ description: Leer, limpiar, transformar o guardar datos de actividades de carrer
 
 ## Fuentes y formatos
 
+Arquitectura (ADR 0004): un adaptador por fuente en `src/`, función pura ruta → DataFrames con el
+esquema canónico de abajo. Solo el adaptador conoce el formato de origen; el resto del sistema nunca
+lee ficheros de una fuente concreta.
+
 | Fuente | Formato | Notas |
 | --- | --- | --- |
+| **Exportación de Apple Health (fuente actual)** | `export.zip` → `export.xml` (~1 GB) + `workout-routes/*.gpx` | Solo `<Workout>` de carrera con origen Apple Watch (ADR 0004). Leer con `iterparse`, nunca entero. FC por muestra agregada: usar la FC media de `<WorkoutStatistics>`. Contiene registros clínicos y ECG: nunca fuera de `data/raw/` |
+| Exportación de adidas Running | zip con `Sport-sessions/*.json` | Descartada como fuente (ADR 0004); API cerrada desde el 30/06/2025 |
 | Exportación masiva Strava | `activities.csv` + `activities/*.fit.gz`, `*.gpx.gz`, `*.tcx.gz` | Formato según cómo se subió la actividad |
 | Exportación Garmin Connect | `.fit` (dentro de zips) | Fuente más completa: FC, cadencia, potencia, dinámica de carrera |
 | Descarga suelta | `.fit` / `.gpx` | Para pruebas rápidas |

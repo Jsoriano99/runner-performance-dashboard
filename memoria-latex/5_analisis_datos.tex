@@ -7,8 +7,20 @@
 
 \section{Fuentes de datos}
 \label{sec:fuentes}
-% TODO: exportación masiva de Strava y de Garmin Connect, API de Strava, datasets simulados.
-% Ventajas, limitaciones y elección.
+
+Los datos de entrenamiento reales de este trabajo son los del propio autor. Sus carreras están registradas con varias aplicaciones (el reloj Apple Watch, adidas Running, Nike Run Club y Strava), y todas ellas vuelcan sus sesiones en la aplicación Salud de Apple. La exportación de Salud reúne así el historial completo en un único fichero comprimido, que contiene un documento \gls{xml} con los entrenamientos y las mediciones y una carpeta con las rutas en formato \gls{gpx}. Según un inventario preliminar, la exportación contiene 128 carreras entre marzo de 2023 y noviembre de 2026.
+
+Se descartó utilizar adidas Running como fuente directa. Su \gls{api} pública se retiró el 30 de junio de 2025 \cite{runalyze2025changelog}, y la exportación de la cuenta solo cubre las sesiones registradas con esa aplicación.
+
+Como el autor suele registrar la misma salida con dos aplicaciones a la vez, la exportación contiene sesiones duplicadas (17 solapes temporales). Para no mezclar datos medidos con sensores y algoritmos distintos, se utiliza una única fuente: los entrenamientos registrados por el Apple Watch, que son 71 carreras, 70 de ellas con \gls{fc} media de la sesión. La justificación de esta decisión y su efecto en la arquitectura se describen en la sección~\ref{sec:ingesta}.
+
+% Confirmado en el notebook (12/11): 128 carreras, 03/2023-11/2026; 71 Apple Watch.
+% REVISAR: aún sin confirmar en el notebook: 17 solapes y 70 carreras con FC media.
+% TODO: limitación de la fuente: el sourceName del reloj contiene un espacio de no separación
+% (U+00A0); el adaptador identifica el reloj por el atributo device.
+% TODO: detallar los campos disponibles por sesión y sus limitaciones (FC agregada en los
+% entrenos del reloj, dinámica de carrera solo en parte de las sesiones).
+% TODO: fuente de los datos de varios corredores para la vista de entrenador (pendiente de decidir).
 
 \section{Formatos de las actividades}
 \label{sec:formatos}

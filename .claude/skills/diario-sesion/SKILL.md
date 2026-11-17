@@ -22,7 +22,7 @@ qué se hizo, qué se decidió y qué queda, sin leer el historial de chat.
    Fecha `dd/mm/aaaa` · tarea · resultado y decisiones (con referencia a ADR o commit si aplica).
 3. **Memoria**: si lo hecho cambia algún capítulo, actualizarlo ahora (skill `memoria-latex`). Lo que
    no dé tiempo, marcarlo con `% TODO:` en su sitio.
-4. **Notion**: en la base de datos «Tareas», actualizar la tarea de la sesión (proyecto TFG):
+4. **Notion**: en la base de datos «Tareas TFG» (página del TFG), actualizar la tarea de la sesión:
    `Estado` (En curso / Hecha) y `Notas` con el resumen corto y los siguientes pasos.
 5. **Git**: commit de lo pendiente siguiendo `git-flujo` y push de la rama.
 6. **Siguiente paso**: proponer al usuario la siguiente tarea concreta, sin empezarla.

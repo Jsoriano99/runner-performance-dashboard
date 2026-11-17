@@ -19,4 +19,23 @@
 
 \section{Proceso de ingesta y transformación}
 \label{sec:ingesta}
-% TODO: de los ficheros exportados a la base de datos: lectura, limpieza, normalización.
+
+La ingesta se ha diseñado para que el resto del sistema no dependa del formato en que se exportan los datos. Para ello se aplica el patrón adaptador: cada fuente de datos dispone de un adaptador propio que lee los ficheros de esa fuente y los transforma en un esquema canónico común, con unidades del Sistema Internacional, marcas de tiempo en UTC y nombres de columna fijos. El adaptador es el único componente que conoce el formato de origen, de modo que las conversiones de unidades y de campos se realizan una sola vez y en un único lugar. El modelo de datos, el cálculo de métricas y el \textit{dashboard} trabajan exclusivamente con el esquema canónico.
+
+El primer adaptador lee la exportación de la aplicación Salud de Apple (sección~\ref{sec:fuentes}). El documento \gls{xml} principal ocupa cerca de 1~GB, por lo que se recorre en modo secuencial con la biblioteca estándar de Python, sin cargarlo entero en memoria; las rutas \gls{gpx} se leen con la biblioteca gpxpy. El adaptador conserva únicamente las carreras registradas por el Apple Watch y descarta las escritas por otras aplicaciones. De este modo, todas las sesiones se miden con el mismo sensor y los mismos algoritmos, y no es necesaria una regla de eliminación de duplicados.
+
+Se descartaron las siguientes alternativas:
+
+\begin{itemize}
+    \item Usar la exportación de la cuenta de adidas Running, porque solo cubre las sesiones de esa aplicación y no incluye rutas ni métricas de dinámica de carrera.
+    \item Combinar todos los orígenes de la exportación con una regla de eliminación de duplicados. Aportaría más sesiones, pero mezclaría sensores y algoritmos de cálculo distintos, de modo que las métricas dejarían de ser comparables entre sesiones.
+    \item Convertir los datos a \gls{fit} con un servicio externo, porque añade un paso manual y una dependencia ajena al proyecto, y la conversión puede alterar campos sin que quede constancia en el código.
+    \item Leer el formato de origen directamente desde el modelo y las métricas, sin capa de adaptación, porque acoplaría todo el sistema a un formato concreto.
+\end{itemize}
+
+Esta elección tiene un coste conocido: se descartan las sesiones registradas solo con otras aplicaciones y, en los entrenamientos del reloj, la \gls{fc} por muestra aparece agregada en la exportación. Por ello, la carga de entrenamiento se calculará con métricas basadas en la \gls{fc} media de la sesión.
+
+La principal consecuencia de esta decisión es la extensibilidad: incorporar otra fuente de datos, como un reloj que exporte ficheros \gls{fit}, solo requiere escribir un nuevo adaptador con sus pruebas, sin modificar el modelo de datos ni el resto del flujo. La decisión se documenta en el ADR 0004 del repositorio.
+
+% TODO: diagrama del flujo (exportación, adaptador, esquema canónico, SQLite) y reglas de limpieza
+% aplicadas (pausas, saltos de GPS, FC fuera de rango) cuando estén implementadas.
